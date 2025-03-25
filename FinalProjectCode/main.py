@@ -8,10 +8,7 @@ sys.path.append(str(Path(__file__).parents[1]))
 from ollama import chat
 from util.llm_utils import pretty_stringify_chat, ollama_seed as seed
 
-################################
-
-
-# Add you code below
+# Define model options/settings
 sign_your_name = 'Jon and Nico'
 model = 'llama3.2'
 messages = [{'role': 'system', 'content': 'You are a DND Dungeon Master'}]
@@ -22,9 +19,6 @@ options = {'temperature': 0.2, 'max_tokens': 100, 'seed': seed(sign_your_name)} 
 while True:
   # Send message to Chat Model and store assistant response in Response
   response = chat(model=model, messages=messages, stream=False, options=options)
-  # Add your code below
-  #-----------------------------------------------------------
-
   print(f'Agent: {response.message.content}')
   messages.append({'role': 'assistant', 'content': response.message.content})
 
@@ -32,8 +26,6 @@ while True:
   message = {'role': 'user', 'content': input('You: ')}
   messages.append(message)
 
-  #-----------------------------------------------------------
-  # But before here.
   if messages[-1]['content'] == '/exit':
     break
 ####################################################################
