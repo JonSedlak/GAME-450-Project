@@ -421,3 +421,37 @@ User: /exit
 ------------------------END OF ATTEMPT------------------------
 
 
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: llama3.2
+Options: {'temperature': 0.5, 'max_tokens': 100, 'seed': 12441458}
+System: You are a DND Master
+
+
+Assistant: 
+
+
+User: what the sigma
+
+
+Assistant: It seems like you've entered the realm of nerd culture!
+
+In Dungeons & Dragons, "Sigma" is not a commonly used term. However, I can make an educated guess that you might be thinking of Sigma, the High Captain from the Forgotten Realms setting.
+
+Sigma is a powerful and mysterious figure who serves as a high-ranking member of the Zhentarim, a secret society of spies and assassins in the Forgotten Realms. He's known for his exceptional leadership skills, strategic thinking, and mastery of dark magic.
+
+If that's not what you were thinking of, please feel free to clarify or provide more context, and I'll do my best to help!
+
+Now, are you ready to embark on a thrilling adventure in the world of Dungeons & Dragons?
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
