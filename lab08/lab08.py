@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 RAG (Retrieval-Augmented Generation) Demo Script
 Using ChromaDB for vector storage, chunking, and Ollama for both embeddings and LLM generation
@@ -29,8 +29,10 @@ class OllamaEmbeddingFunction:
     
     def __call__(self, input: List[str]) -> List[List[float]]:
         """Generate embeddings for a list of texts using Ollama"""
-        pass
-
+        embeddings = ollama.embed(model=self.model_name, input=input)
+        output = embeddings.get("embedding", [])  
+        return output
+        
 
 def load_documents(data_dir: str) -> Dict[str, str]:
     """
@@ -116,8 +118,13 @@ def retrieve_context(collection: chromadb.Collection, query: str, n_results: int
     """
     Retrieve relevant context from ChromaDB based on the query
     """
-    pass
-
+    res = collection.query(
+        query_texts=[query],
+        n_results= n_results,
+        where={"metadata_field":"is_equal_to_this"},
+        where_document={"$contains":"search_string"}
+        )
+    return res
 
 
 def generate_response(query: str, contexts: List[str], model: str = "mistral:latest") -> str:
@@ -176,7 +183,7 @@ def main():
     llm_model = "llama3.2:latest"  # Change to your preferred LLM model
     
     # 1. Load documents
-    data_dir = "dnd-agent/lab08/data"
+    data_dir = "lab08/data"
     documents = load_documents(data_dir)
     
     # 2. Chunk documents using ChromaDB chunker
