@@ -1,0 +1,91 @@
+# Shopkeeper Items and Info
+
+    # Wizard
+        The Wizard, a brilliant and eccentric mind cloaked in star-dusted robes, lives in a world of theory and wonder. Curious to a fault and always just slightly absentminded, they often smell faintly of ink and burnt ozone. Their pockets are full of oddities — chalk for runes, tiny vials of glowing liquid, feathers, bits of dragon scale — and they’re never without their spellbook, a tome as thick as a tomb and twice as dangerous.
+
+        ## Titanbone Greatblade – +2 strength, +1 Crit chance, does 60 damage; massive blade made from giant’s remains, hums when swung.
+
+        ## Ironwall Gauntlets – +3 Defense, +1 Concentration; indestructible fists that brace against any blow.
+
+        ## Elixir of Enduring Fury – Heals 30 HP, +1 to attack rolls for 1 minute; thick red brew that bubbles with rage.
+
+    # Fighter
+        Forged in battle and honed under starlit drills, the Fighter is a fortress of discipline and quiet resolve. Stoic but surprisingly poetic when the mood strikes, they speak seldom but strike true. Often found sharpening their blade by firelight or repairing a dented pauldron with practiced hands. In battle, they carry an assortment of weapons — longsword, javelin, maybe a backup axe tucked into their boot — and a worn leather journal where they record tales of victories and defeats alike.
+
+        ## Sapphire Circlet of Focus – +3 Concentration, +1 Wisdom; sparkles when spells are sustained.
+
+        ## Scroll of Wild Conduction – Casts lightning bolt, does 400 damage, once used it burns into ash when cast.
+
+        ## Spellweaver’s Robe – +2 Intelligence, +1 Defense, resistance to magic missile; threads shimmer with runes.
+    
+    # Rogue
+        Sly-eyed and quick-tongued, the Rogue always seems to know a little too much and smile a little too easily. Charming in a “definitely stole your ring” kind of way, they thrive in chaos and candlelight. Their gear includes a coil of thieves’ tools, a vial of disappearing ink, several daggers hidden in more places than you’d expect, and an enchanted coin they flip when making hard decisions — or just to look cool.
+
+        ## Boots of the Quiet Step – +3 Stealth, +3 attack speed advantage in combat; soles muffle even heartbeats.
+
+        ## Thieves’ Ring of Tricks – +3 Sleight of Hand, reroll one failed Dexterity check/day; feels slippery when worn.
+
+        ## Daggers of the Damned - Does 45 damage, boosts by +2 agility after use for next 2 turns of combat.
+    
+    # Druid
+        Wise beyond years and wholly at peace with the wild world, the Druid moves with the rhythm of the earth. Gentle and introspective, but fearsome when roused, they might be seen tending to wounded animals or whispering secrets to the trees. Their pouches are stuffed with dried herbs, polished stones, and bones carved with old runes. A gnarled staff topped with a glowing gem and a cloak of living moss are their trusted companions.
+
+        ## Fangtooth Amulet – +2 Attack in beast form, +1 to Strength while transformed; carved from a dire wolf’s jaw.
+
+        ## Moonleaf Mantle – +2 Wisdom, resistance to poison and disease; smells like the forest after rain.
+
+        ## Staff of the Rootbound – +2 Nature, casts entangle 2/day to skip enemy turn in battle; topped with a living sprig.
+    
+    # Paladin
+        A beacon of hope with a voice like thunder and a heart like a temple, the Paladin carries the weight of their oath in every word and motion. They are noble, stern, and full of stories that begin with “when I was still a squire...” On their person, expect blessed prayer beads, a holy symbol that glows faintly in darkness, a flask of consecrated water, and a polished longsword etched with their sacred vow. Their armor always seems to gleam, even when bloodied.
+
+        ## Blessed Tower Shield – +3 Faith, +1 saves against spells; etched with a sunburst that flares in danger.
+
+        ## Sanctified Armorplate – +4 Defense, +5 Faith, radiant damage resistance; gleams like starlight.
+
+        ## Blade of Divine Oath – Does 75 damage, +2 to undead enemies, glows on command; hums with holy intent.
+
+    # Sorcerer
+        Equal parts radiant and unpredictable, the Sorcerer’s personality mirrors their magic: vibrant, wild, and slightly unstable. Often dramatic, often brilliant, and always the center of any magical mishap. They carry odd family heirlooms brimming with latent power, arcane crystals humming with energy, and enchanted rings that sometimes argue with one another. Their cloak flutters even when there’s no wind, and their hair may or may not occasionally catch fire when they're excited.
+
+        ## Robe of Arcane Pulse – +2 Charisma, pulse knocks back attackers by roughly 10 feet unless heavyweight enemies every use once a battle; pulses with untamed power.
+
+        ## Chaos Charm – Once a day reroll of any spell damage die during combat; twitchy and chaotic, even while still.
+
+        ## Staff of Agrawal, Legend of Stonegild - Does a range from +150 to +400 damage, depending on the element it posesses at the time of use, considered one of the strongest staffs to exist.
+
+    # Bard
+        Ever-smiling and impossibly smooth, the Bard is the soul of the party — in every sense. With a wink, a story, or a song, they can brighten a room or start a revolution. Their satchel overflows with quills, enchanted sheet music, bits of mysterious love letters, and at least three types of musical instruments (one of which is probably cursed). They often wear enchanted clothing that shifts color to match their mood — and they have a dramatic mood for every hour of the day.
+
+        ## Charming Brooch – +3 Persuasion, immunity to charm person once/day; sparkles when flattered.
+
+        ## Whispering Quill – +2 to Insight, writes notes on its own when lies are spoken; often scribbles poetry.
+
+        ## Mask of the Theatre – Cast disguise self at will; changes expression when worn.
+
+    # Warlock
+        A walking enigma cloaked in shadows and velvet, the Warlock is equal parts charisma and cryptic menace. Polite to the point of suspicion, they’re often found consulting with unseen voices or feeding strange creatures in tiny cages. Their items are eclectic: an obsidian mirror that doesn't reflect the living, a pact-bound tome that writes back, and a ring that glows when otherworldly eyes are near. Their lantern burns cold and blue, and their familiar might be watching you right now.
+
+        ## Amulet of Voidglass – +1 Wisdom, resistance to psychic damage; reflects things that aren’t there.
+
+        ## Eldritch Blade – Does deeptissue blood poison damage that acts quick during battle, +30 damage initially but +50 damage per round of turns in battle or out of battle, +2 Spell Attack, restores +50 Health on kill; whispers when drawn.
+
+        ## Cloak of Eldritch Shadows – +2 Stealth, grants misty step 1/day; trails with smoke that vanishes in air.
+
+    # Ranger
+        Quiet, calm, and deeply perceptive, the Ranger prefers the company of beasts and breeze to that of bustling taverns. They are pragmatic, loyal, and sharper than the arrow they loosed last week. Their gear is practical and worn — a finely tuned longbow, dried meat for both them and their companion, a travel-stained map covered in notes, and a whistle carved from bone that calls birds from the sky. You can always tell where a Ranger’s been — by the traps they’ve hidden and the trail they didn’t leave.
+
+        ## Hunter’s Compass – +2 Survival, always points to nearest prey that when consumed gives at least +20 health; etched with clawmarks.
+
+        ## Fangbone Quiver – +1 to damage, holds +20 arrows, generates +1 arrows a day; stitched from beast hide.
+
+        ## Bow of Apollo - Deals +70 damage and has a 20% more likely chance to break small and medium shield materials during battle, legend says it was taken from the God himself during his nightful slumber.
+
+    # Artificer
+        Perpetually tinkering and often mumbling to themselves about “mana circuits” and “impossible resonance,” the Artificer is endlessly curious and just a little unhinged. Kind-hearted but distracted, they carry half-built machines in their pockets, an ever-glowing lantern powered by aether, and a collapsible homunculus assistant named something like "Gearbert." Their armor clicks and whirrs with each step, and their fingers are always stained with ink, oil, and tiny explosions.
+
+        ## Goggles of Arcane Precision – +2 Investigation, advantage on crafting rolls; lenses adjust with a click.
+
+        ## Potion Printer – Crafts 1 common potion a day, but requires a power source, 50% faster brew speed; ticks cheerfully while working.
+
+        ## Voltaglyph Arc Cannon – Does +90 lightning damage, auto reloading, a compact shoulder-mounted device that crackles with unstable currents.
