@@ -11,12 +11,12 @@ from collections import defaultdict
 ollama_seed = lambda x: int(str(int(hashlib.sha512(x.encode()).hexdigest(), 16))[:8])
 
 def pretty_stringify_chat(messages):
-  stringified_chat = ''
-  for message in messages:
-      role = message["role"].capitalize()
-      content = message["content"]
-      stringified_chat += f"{role}: {content}\n\n\n"
-  return stringified_chat
+    stringified_chat = ''
+    for message in messages:
+        role = message["role"].capitalize()
+        content = message["content"]
+        stringified_chat += f"{role}: {content}\n\n\n"
+    return stringified_chat
 
 def insert_params(string, **kwargs):
     pattern = r"{{(.*?)}}"
@@ -55,6 +55,7 @@ class TemplateChat:
         self.instance = template
         self.instance['options']['seed'] = hash(str(sign))
         self.messages = self.instance['messages']
+        self.tools = self.instance.get('tools', [])  # Get tools if defined
         self.end_regex = kwargs['end_regex'] if 'end_regex' in kwargs else None
         self.function_caller = kwargs['function_call_processor'] if 'function_call_processor' in kwargs else None
         process_response_method = kwargs['process_response'] if 'process_response' in kwargs else lambda self, x: x 
@@ -64,7 +65,6 @@ class TemplateChat:
     def from_file(template_file, sign=None, **kwargs):
         with open(Path(template_file), 'r') as f:
             template = json.load(f)
-
         return TemplateChat(template, sign, **kwargs)
 
     def completion(self, **kwargs):

@@ -3,21 +3,22 @@ from pathlib import Path
 import sys
 sys.path.append(str(Path(__file__).parents[1]))
 from util.llm_utils import TemplateChat
+from collections import defaultdict
 
 
 # Simple tool processor for demonstration (replace with real tools later)
-def tool_router(response):
-    content = response.message.content
-    # Placeholder: we can parse and route tool calls here
-    # For now, just return the response unchanged
-    return response
+def tool_router(func):
+    calls = defaultdict(list)
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        calls[f'{func.__name__}_calls'].append({'name': func.__name__, 'args': args, 'kwargs': kwargs, 'result': result})
+        print('\n\nTools Called: \n', calls, '\n\n')
+        return result
+    return wrapper
 
 
-def run_chat(template_file, sign, **kwargs):
+def run_chat(**kwargs):
     chat = TemplateChat.from_file(
-        template_file=template_file,
-        sign=sign,
-        function_call_processor=tool_router,
         **kwargs
     )
 
