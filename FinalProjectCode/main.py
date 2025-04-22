@@ -52,7 +52,6 @@ def main():
     run_chat(
         template_file="FinalProjectCode/trader_chat.json",
         sign="Jon, Nico, Alex",
-        inventory=["health potion", "mana potion", "elven cloak"],
         process_response=process_response, # Pass your response processor
         end_regex=r"ORDER(.*)DONE"
     )
