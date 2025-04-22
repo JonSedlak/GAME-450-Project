@@ -11,15 +11,20 @@ def process_function_call(function_call):
     return globals()[name](**args)
 
 def roll_for_price(player, item_price, player_negotiated_price , item):
-    n_dice = 1
-    sides = 20
-    roll = sum([random.randint(1, sides) for _ in range(n_dice)])
-    if roll == 20:
-        return f'{player} rolled {roll} for {item} and succeeded and the item is free!'
-    elif roll >= 15:
-        return f'{player} rolled {roll} for {item} and the price was changed to {player_negotiated_price}'
+    if item_price == player_negotiated_price:
+        return f'{player} agreed to the price, the price does not change and the order is ended'
+    elif player_negotiated_price == 'none':
+        return f'{player} is not negotiating, continue as normal'
     else:
-        return f'{player} rolled {roll} for {item} and the price stays firm at {item_price} and the price will not be reduce'
+        n_dice = 1
+        sides = 20
+        roll = sum([random.randint(1, sides) for _ in range(n_dice)])
+        if roll == 20:
+            return f'{player} rolled {roll} for {item} and succeeded and the item is 0 gold coins and the order is ended!'
+        elif roll >= 15:
+            return f'{player} rolled {roll} for {item} and the item_price was changed to {player_negotiated_price} gold and the order is ended'
+        else:
+            return f'{player} rolled {roll} for {item} and the item_price stays at {item_price} gold and the order is ended'
 
 
 def process_response(self, response):
@@ -30,17 +35,17 @@ def process_response(self, response):
         fn_call = response.message.tool_calls[0].function
         result = process_function_call(fn_call)
 
-        # append the tool’s output
+        # Add tool output to conversation
         self.messages.append({
             'role': 'tool',
             'name': fn_call.name,
             'content': result
         })
 
-        # re‑invoke the model so it can see the tool’s output
+        # Let the model respond to the tool output
         response = self.completion()
 
-        # **append** that assistant response into the history
+        # Add assistant's follow-up response
         self.messages.append({
             'role': response.message.role,
             'content': response.message.content
