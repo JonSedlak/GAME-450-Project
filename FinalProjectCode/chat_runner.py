@@ -33,6 +33,7 @@ def run_chat(**kwargs):
                 break
             response = chat.send(user_input)
             print("Agent:", response)
+
         except StopIteration as e:
             if isinstance(e.value, tuple):
                 print("Agent:", e.value[0])

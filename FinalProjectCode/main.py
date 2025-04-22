@@ -1,7 +1,9 @@
 from chat_runner import run_chat, tool_router
 import random
+from util.llm_utils import run_console_chat, tool_tracker
 import json
 
+@tool_tracker
 def process_function_call(function_call):
     name = function_call.name
     args = function_call.arguments
@@ -25,13 +27,25 @@ def process_response(self, response):
     # and make the function call 
     
     if response.message.tool_calls:
-        self.messages.append({'role': 'tool',
-                          'name': response.message.tool_calls[0].function.name, 
-                          'arguments': response.message.tool_calls[0].function.arguments,
-                          'content': process_function_call(response.message.tool_calls[0].function)
-                         })
-        response = self.completion()    
-    
+        fn_call = response.message.tool_calls[0].function
+        result = process_function_call(fn_call)
+
+        # append the tool’s output
+        self.messages.append({
+            'role': 'tool',
+            'name': fn_call.name,
+            'content': result
+        })
+
+        # re‑invoke the model so it can see the tool’s output
+        response = self.completion()
+
+        # **append** that assistant response into the history
+        self.messages.append({
+            'role': response.message.role,
+            'content': response.message.content
+        })
+
     return response
 
 def main():
@@ -39,7 +53,7 @@ def main():
         template_file="FinalProjectCode/trader_chat.json",
         sign="Jon, Nico, Alex",
         inventory=["health potion", "mana potion", "elven cloak"],
-        response_processor=process_response, # Pass your response processor
+        process_response=process_response, # Pass your response processor
         end_regex=r"ORDER(.*)DONE"
     )
 
