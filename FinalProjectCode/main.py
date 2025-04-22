@@ -19,7 +19,7 @@ def roll_for_price(player, item_price, player_negotiated_price , item):
     elif roll >= 15:
         return f'{player} rolled {roll} for {item} and the price was changed to {player_negotiated_price}'
     else:
-        return f'{player} rolled {roll} for {item} and the price stays firm at {item_price}!'
+        return f'{player} rolled {roll} for {item} and the price stays firm at {item_price} and the price will not be reduce'
 
 
 def process_response(self, response):
