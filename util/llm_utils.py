@@ -32,7 +32,7 @@ def tool_tracker(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         calls[f'{func.__name__}_calls'].append({'name': func.__name__, 'args': args, 'kwargs': kwargs, 'result': result})
-        print('\n\nTools Called: \n', calls, '\n\n')
+        #print('\n\nTools Called: \n', calls, '\n\n')
         return result
     return wrapper
 
