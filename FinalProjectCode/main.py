@@ -18,7 +18,7 @@ def speak(text, player="player"):
     elif text == 2: 
         tts_engine.setProperty('rate', 170)
         tts_engine.setProperty('volume', 1.0)
-        tts_engine.say("OK OK, I SEE YOU CUZZZ!")
+        tts_engine.say("OK OK, I SEE YOU CUZZZ! BOOOOOOOOOOOOOOOOOOM!")
 
     elif text == 3: 
         tts_engine.setProperty('rate', 160)
