@@ -8,22 +8,22 @@ import pyttsx3
 tts_engine = pyttsx3.init()
 tts_engine.setProperty('rate', 150)  # Optional: set speaking rate
 
-def speak(text, player="player"):
+def speak(text, roll=None, player="adventurer"):
     # Shouting-style: fast and loud
     if text == 1: 
-        tts_engine.setProperty('rate', 180)     # Faster
-        tts_engine.setProperty('volume', 1.0)   # Max volume
-        tts_engine.say("5 BIG BOOMS!!! BOOM! BOOM! BOOM! BOOM! BOOM!")
-    
+        tts_engine.setProperty('rate', 180)     
+        tts_engine.setProperty('volume', 1.0)   
+        tts_engine.say(f"CRITICAL HIT! Rolled a {roll}! 5 BIG BOOMS for the {player}!!! BOOM! BOOM! BOOM! BOOM! BOOM!")
+
     elif text == 2: 
         tts_engine.setProperty('rate', 170)
         tts_engine.setProperty('volume', 1.0)
-        tts_engine.say("OK OK, I SEE YOU CUZZZ! BOOOOOOOOOOOOOOOOOOM!")
+        tts_engine.say(f"Rolled a {roll}! OK OK, I SEE YOU {player}! BOOOOOOOOOOOOOOOOOOM!")
 
     elif text == 3: 
         tts_engine.setProperty('rate', 160)
         tts_engine.setProperty('volume', 1.0)
-        tts_engine.say("TEEEEE HEEEEEEE!")
+        tts_engine.say(f"Rolled a {roll}! TEEEEE HEEEEEEE! better luck next time stinky {player}")
 
     elif text == 4: 
         tts_engine.setProperty('rate', 150)
@@ -33,7 +33,8 @@ def speak(text, player="player"):
     else:
         tts_engine.setProperty('rate', 150)
         tts_engine.setProperty('volume', 0.8)
-        tts_engine.say("Unknown voice command.")
+        tts_engine.say("Uhhhhhhhhhhhhhhhhh bye.")
+
     
     tts_engine.runAndWait()
 
@@ -48,7 +49,7 @@ def process_function_call(function_call):
 
 def roll_for_price(player, item_price, player_negotiated_price , item):
     if item_price == player_negotiated_price:
-        speak(4, player=player)
+        speak(4)
         return f'{player} agreed to the price, the price does not change and the order is ended'
     elif player_negotiated_price == 'none':
         return f'{player} is not negotiating, continue as normal'
@@ -57,13 +58,13 @@ def roll_for_price(player, item_price, player_negotiated_price , item):
         sides = 20
         roll = sum([random.randint(1, sides) for _ in range(n_dice)])
         if roll == 20:
-            speak(1)
+            speak(1, roll=roll, player=player)
             return f'{player} rolled {roll} for {item} and succeeded and the item is 0 gold coins and the order is ended!'
         elif roll >= 15:
-            speak(2)
+            speak(2, roll=roll, player=player)
             return f'{player} rolled {roll} for {item} and the item_price was changed to {player_negotiated_price} gold and the order is ended'
         else:
-            speak(3)
+            speak(3, roll=roll, player=player)
             return f'{player} rolled {roll} for {item} and the item_price stays at {item_price} gold and the order is ended'
 
 
