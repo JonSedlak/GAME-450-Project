@@ -95,7 +95,7 @@ def process_response(self, response):
 
 def main():
     embedding_model = "nomic-embed-text"
-    data_dir = "FinalProjectCode/RAGData"
+    data_dir = "FinalProjectCode/dnd_shopkeeperRAG.txt"
     documents = load_documents(data_dir)
     
     # 2. Chunk documents using ChromaDB chunker

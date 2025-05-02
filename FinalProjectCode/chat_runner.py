@@ -69,17 +69,23 @@ class OllamaEmbeddingFunction:
         responses = ollama.embed(model=self.model_name, input=input)
         return responses.embeddings
     
-def load_documents(data_dir: str) -> Dict[str, str]:
+def load_documents(data_path: str) -> Dict[str, str]:
     """
     Load text documents from a directory
     """
     documents = {}
-    for file_path in glob.glob(os.path.join(data_dir, "*.txt")):
-        with open(file_path, 'r') as file:
-            content = file.read()
-            documents[os.path.basename(file_path)] = content
-    
-    print(f"Loaded {len(documents)} documents from {data_dir}")
+
+    if os.path.isfile(data_path):
+        with open(data_path, 'r', encoding='utf-8') as file:
+            documents[os.path.basename(data_path)] = file.read()
+    elif os.path.isdir(data_path):
+        for file_path in glob.glob(os.path.join(data_path, "*.txt")):
+            with open(file_path, 'r', encoding='utf-8') as file:
+                documents[os.path.basename(file_path)] = file.read()
+    else:
+        raise ValueError(f"Path {data_path} is neither a file nor a directory")
+
+    print(f"Loaded {len(documents)} document(s) from {data_path}")
     return documents
 
 
@@ -153,7 +159,7 @@ def retrieve_context(collection: chromadb.Collection, query: str, n_results: int
     """
     Retrieve relevant context from ChromaDB based on the query
     """
-    return collection.query(query_texts=[query], n_results=n_results).get("documents")[0]
+    return collection.query(query_text=query, n_results=n_results).get("documents")[0]
 
 
 def generate_response(query: str, contexts: List[str], model: str = "mistral:latest") -> str:
@@ -163,8 +169,8 @@ def generate_response(query: str, contexts: List[str], model: str = "mistral:lat
     # Create prompt with context
     context_text = "\n\n".join(contexts)
     
-    prompt = f"""You are a helpful assistant for Dungeons & Dragons players.
-    Use the following information to answer the question.
+    prompt = f"""You are a shopkeeper for Dungeons & Dragons players in MAgic and Muscles shop.
+    Use the following information to answer the prompt.
     
     Context:
     {context_text}
