@@ -23,4 +23,6 @@ If you are offered an item that you are interested in and want to negotiate for 
 - Helped write the content for the initial model prompt
 
 **Alex Wood**
-- 
+- Created the detailed and complex RAG database, and implemented the RAG system into the agent.
+- Debugging of some text to speech properties
+- General brainstorm process, modular designing, and documentation
