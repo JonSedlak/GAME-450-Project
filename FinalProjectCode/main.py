@@ -1,4 +1,4 @@
-from chat_runner import run_chat, tool_router
+from chat_runner import run_chat, tool_router, load_documents, chunk_documents, setup_chroma_db, retrieve_context, generate_response, display_results, process_response
 import random
 from util.llm_utils import run_console_chat, tool_tracker
 import json
@@ -28,7 +28,7 @@ def speak(text, roll=None, player="adventurer"):
     elif text == 4: 
         tts_engine.setProperty('rate', 150)
         tts_engine.setProperty('volume', 0.9)
-        tts_engine.say(f"Have a great day {player}!")
+        tts_engine.say("Have a great day!")
 
     else:
         tts_engine.setProperty('rate', 150)
@@ -95,6 +95,19 @@ def process_response(self, response):
     return response
 
 def main():
+    embedding_model = "nomic-embed-text"
+    data_dir = "FinalProjectCode/dnd_shopkeeperRAG.txt"
+    documents = load_documents(data_dir)
+    
+    # 2. Chunk documents using ChromaDB chunker
+    chunks = chunk_documents(documents)
+    
+    # 3. Set up ChromaDB with Ollama embeddings
+    collection = setup_chroma_db(
+        chunks, 
+        ollama_model=embedding_model
+    )
+
     run_chat(
         template_file="FinalProjectCode/trader_chat.json",
         sign="Jon, Nico, Alex",
